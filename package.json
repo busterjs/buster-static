@@ -1,0 +1,27 @@
+{
+    "name": "buster-static",
+    "version": "0.1.0",
+    "description": "QUnit style browser based test runner",
+    "homepage": "http://busterjs.org/docs/buster-static",
+    "author": {
+        "name": "August Lilleaas",
+        "email": "august.lilleaas@gmail.com",
+        "url": "http://augustl.com"
+    },
+    "contributors": [{
+        "name": "Christian Johansen",
+        "email": "christian@cjohansen.no",
+        "url": "http://cjohansen.no"
+    }],
+    "repository": {
+        "type": "git",
+        "url": "git://gitorious.org/buster/buster-static.git"
+    },
+    "dependencies": {
+        "buster-core": "~0.4",
+        "buster-cli": "~0.2"
+    },
+    "devDependencies": {
+        "buster": ""
+    }
+}
