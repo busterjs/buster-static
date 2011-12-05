@@ -17,6 +17,9 @@
         "type": "git",
         "url": "git://gitorious.org/buster/buster-static.git"
     },
+    "bin": {
+        "buster-static": "./bin/buster-static"
+    },
     "dependencies": {
         "buster-core": "~0.4",
         "buster-cli": "~0.2",
