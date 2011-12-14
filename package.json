@@ -1,6 +1,6 @@
 {
     "name": "buster-static",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "QUnit style browser based test runner",
     "homepage": "http://busterjs.org/docs/buster-static",
     "author": {
@@ -26,6 +26,6 @@
         "buster-test": "~0.3"
     },
     "devDependencies": {
-        "buster": "*"
+        "buster": ">=0.3"
     }
 }
