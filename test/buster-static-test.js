@@ -11,7 +11,7 @@ buster.testCase("buster-static", {
         this.s.logger = { log: NOOP };
     },
 
-    "should start server with no arguments": function (done) {
+    "starts server with no arguments": function (done) {
         this.stub(this.s, "startServer", function () {
             assert(true);
             done();
@@ -19,7 +19,7 @@ buster.testCase("buster-static", {
         this.s.run(["--config", __dirname + "/fixtures/test-config.js"]);
     },
 
-    "should start server on specified port with --port": function (done) {
+    "starts server on specified port with --port": function (done) {
         this.stub(this.s, "startServer", function () {
             assert(true);
             done();
@@ -30,7 +30,7 @@ buster.testCase("buster-static", {
                     "4224"]);
     },
 
-    "should write to disk with operand": function (done) {
+    "writes to disk with operand": function (done) {
         this.stub(this.s, "writeToDisk", function () {
             assert(true);
             done();
@@ -60,14 +60,14 @@ buster.testCase("buster-static", {
             this.s.httpServer.close();
         },
 
-        "test getting testbed": function (done) {
+        "gets testbed": function (done) {
             var req = http.request({ port: 17171, path: "/" }, function (res) {
                 assert.equals(res.statusCode, 200);
                 done();
             }).end();
         },
 
-        "test getting none-existent file": function (done) {
+        "gets none-existent file": function (done) {
             var req = http.request({
                 port: 17171,
                 path: "/buster-sucks"
