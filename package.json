@@ -1,6 +1,6 @@
 {
     "name": "buster-static",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "description": "QUnit style browser based test runner",
     "homepage": "http://busterjs.org/docs/buster-static",
     "author": {
@@ -22,10 +22,10 @@
         "buster-static": "./bin/buster-static"
     },
     "dependencies": {
-        "buster-core": ">=0.5.1",
-        "buster-cli": ">=0.4",
-        "buster-test": ">=0.4.2",
-        "buster-resources": ">=0.2"
+        "buster-core": ">=0.6.0",
+        "buster-cli": ">=0.4.2",
+        "buster-test": ">=0.5.0",
+        "buster-resources": ">=0.3"
     },
     "devDependencies": {
         "buster": ">=0.3"
