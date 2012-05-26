@@ -21,6 +21,9 @@
     "bin": {
         "buster-static": "./bin/buster-static"
     },
+    "scripts": {
+        "test": "./node_modules/buster/bin/buster-test"
+    },
     "dependencies": {
         "buster-core": ">=0.6.0",
         "buster-cli": ">=0.4.2",
