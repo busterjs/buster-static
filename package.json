@@ -28,7 +28,7 @@
         "buster-core": ">=0.6.0",
         "buster-cli": ">=0.4.2",
         "buster-test": ">=0.5",
-        "buster-resources": ">=0.3",
+        "ramp-resources": ">=0.1",
         "mkdirp": "~0.3"
     },
     "devDependencies": {
