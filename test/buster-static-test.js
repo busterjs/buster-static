@@ -1,6 +1,6 @@
 var buster = require("buster");
 var assert = buster.assert;
-var cli = require("../lib/cli");
+var cli = require("../lib/buster-static");
 var http = require("http");
 
 var NOOP = function () {};
@@ -12,10 +12,9 @@ buster.testCase("buster-static", {
     },
 
     "starts server with no arguments": function (done) {
-        this.stub(this.s, "startServer", function () {
+        this.stub(this.s, "startServer", done(function () {
             assert(true);
-            done();
-        });
+        }));
         this.s.run(["--config", __dirname + "/fixtures/test-config.js"]);
     },
 

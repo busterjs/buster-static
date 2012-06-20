@@ -1,6 +1,6 @@
 {
     "name": "buster-static",
-    "version": "0.3.3",
+    "version": "0.4.0",
     "description": "QUnit style browser based test runner",
     "homepage": "http://busterjs.org/docs/buster-static",
     "author": {
@@ -17,7 +17,7 @@
         "type": "git",
         "url": "git://gitorious.org/buster/buster-static.git"
     },
-    "main": "./lib/cli",
+    "main": "./lib/buster-static",
     "bin": {
         "buster-static": "./bin/buster-static"
     },
