@@ -1,37 +1,39 @@
 {
-    "name": "buster-static",
-    "version": "0.6.2",
-    "description": "QUnit style browser based test runner",
-    "homepage": "http://busterjs.org/docs/buster-static",
-    "author": {
-        "name": "August Lilleaas",
-        "email": "august.lilleaas@gmail.com",
-        "url": "http://augustl.com"
-    },
-    "contributors": [{
-        "name": "Christian Johansen",
-        "email": "christian@cjohansen.no",
-        "url": "http://cjohansen.no"
-    }],
-    "repository": {
-        "type": "git",
-        "url": "git://gitorious.org/buster/buster-static.git"
-    },
-    "main": "./lib/buster-static",
-    "bin": {
-        "buster-static": "./bin/buster-static"
-    },
-    "scripts": {
-        "test": "./node_modules/buster/bin/buster-test"
-    },
-    "dependencies": {
-        "buster-cli": "~0.6",
-        "buster-test": "~0.7",
-        "ramp-resources": "~1.0",
-        "stack-filter": "~1.0",
-        "mkdirp": "~0.3"
-    },
-    "devDependencies": {
-        "buster": "*"
+  "name": "buster-static",
+  "version": "0.6.2",
+  "description": "QUnit style browser based test runner",
+  "homepage": "http://busterjs.org/docs/buster-static",
+  "author": {
+    "name": "August Lilleaas",
+    "email": "august.lilleaas@gmail.com",
+    "url": "http://augustl.com"
+  },
+  "contributors": [
+    {
+      "name": "Christian Johansen",
+      "email": "christian@cjohansen.no",
+      "url": "http://cjohansen.no"
     }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://gitorious.org/buster/buster-static.git"
+  },
+  "main": "./lib/buster-static",
+  "bin": {
+    "buster-static": "./bin/buster-static"
+  },
+  "scripts": {
+    "test": "./node_modules/buster/bin/buster-test"
+  },
+  "devDependencies": {
+    "buster": "*"
+  },
+  "dependencies": {
+    "stack-filter": "~1.0.0",
+    "mkdirp": "~0.3.5",
+    "buster-cli": "~0.6.0",
+    "ramp-resources": "~1.0.2",
+    "buster-test": "~0.7.5"
+  }
 }
