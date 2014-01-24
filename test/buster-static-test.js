@@ -2,13 +2,14 @@ var buster = require("buster");
 var assert = buster.assert;
 var cli = require("../lib/buster-static");
 var http = require("http");
+var testConfig = require('./fixtures/test-config')
 
 var NOOP = function () {};
 
 buster.testCase("buster-static", {
     setUp: function () {
         this.s = cli.create();
-        this.s.logger = { log: NOOP };
+        this.s.logger = { log: NOOP, error: NOOP };
     },
 
     "starts server with no arguments": function (done) {
@@ -29,7 +30,7 @@ buster.testCase("buster-static", {
                     "4224"]);
     },
 
-    "writes to disk with operand": function (done) {
+    "// writes to disk with operand": function (done) {
         this.stub(this.s, "writeToDisk", function () {
             assert(true);
             done();
@@ -55,15 +56,19 @@ buster.testCase("buster-static", {
         },
 
         tearDown: function (done) {
-            this.s.httpServer.on("close", done);
-            this.s.httpServer.close();
+            this.s.httpServer.close(done);
         },
 
         "gets testbed": function (done) {
             var req = http.request({ port: 17171, path: "/" }, function (res) {
                 assert.equals(res.statusCode, 200);
                 done();
-            }).end();
+            });
+
+            // properly disconnect the connection
+            req.shouldKeepAlive = false;
+
+            req.end();
         },
 
         "gets none-existent file": function (done) {
@@ -73,7 +78,28 @@ buster.testCase("buster-static", {
             }, function (res) {
                 assert.equals(res.statusCode, 404);
                 done();
-            }).end();
+            });
+
+            // properly disconnect the connection
+            req.shouldKeepAlive = false;
+
+            req.end();
         }
+    },
+
+    "loads optional extensions": function (done) {
+        testConfig['Tests'].extensions = [{
+            name: 'test-extension',
+            create: function () {
+                assert(true)
+                delete testConfig['Tests'].extensions;
+                done();
+                return Object.create(this)
+            }
+        }];
+
+        this.s.run(["--config",
+            __dirname + "/fixtures/test-config.js"
+        ]);
     }
 });
