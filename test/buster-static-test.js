@@ -56,6 +56,7 @@ buster.testCase("buster-static", {
         },
 
         tearDown: function (done) {
+            this.timeout = 2000;
             this.s.httpServer.close(done);
         },
 
