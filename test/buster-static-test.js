@@ -1,8 +1,10 @@
+"use strict";
+
 var buster = require("buster");
 var assert = buster.assert;
 var cli = require("../lib/buster-static");
 var http = require("http");
-var testConfig = require('./fixtures/test-config')
+var testConfig = require('./fixtures/test-config');
 
 var NOOP = function () {};
 
@@ -92,15 +94,13 @@ buster.testCase("buster-static", {
         testConfig['Tests'].extensions = [{
             name: 'test-extension',
             create: function () {
-                assert(true)
+                assert(true);
                 delete testConfig['Tests'].extensions;
                 done();
-                return Object.create(this)
+                return Object.create(this);
             }
         }];
 
-        this.s.run(["--config",
-            __dirname + "/fixtures/test-config.js"
-        ]);
+        this.s.run(["--config", __dirname + "/fixtures/test-config.js"]);
     }
 });
