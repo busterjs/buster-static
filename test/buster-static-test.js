@@ -56,8 +56,8 @@ buster.testCase("buster-static", {
         },
 
         tearDown: function (done) {
-            this.timeout = 2000;
-            this.s.httpServer.close(done);
+            this.s.httpServer.on("close", done);
+            this.s.httpServer.close();
         },
 
         "gets testbed": function (done) {
