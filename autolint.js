@@ -1,13 +1,14 @@
 module.exports = {
 	paths : [ "lib/**/*.js", "test/**/*.js" ],
-	linter : "jslint",
+	linter : "jshint",
 	linterOptions : {
+	    maxlen: 85,
 		node : true,
-		vars : true,
+		onevar: false,
 		plusplus : false,
 		nomen : true,
 		forin : true,
-		regexp : true,
+		regexp : false,
 		es5 : true,
 		sub : true,
 		predef : [ "assert", "refute", "buster", "window", "document",
