@@ -2,7 +2,6 @@ module.exports = {
 	paths : [ "lib/**/*.js", "test/**/*.js" ],
 	linter : "jshint",
 	linterOptions : {
-	    maxlen: 85,
 		node : true,
 		onevar: false,
 		plusplus : false,
