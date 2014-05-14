@@ -32,11 +32,10 @@ buster.testCase("buster-static", {
                     "4224"]);
     },
 
-    "// writes to disk with operand": function (done) {
-        this.stub(this.s, "writeToDisk", function () {
+    "writes to disk with operand": function (done) {
+        this.stub(this.s, "writeToDisk", done(function () {
             assert(true);
-            done();
-        });
+        }));
         this.s.run(["--config",
                     __dirname + "/fixtures/test-config.js",
                     "/tmp/static-test"]);
@@ -93,12 +92,9 @@ buster.testCase("buster-static", {
     "loads optional extensions": function (done) {
         testConfig['Tests'].extensions = [{
             name: 'test-extension',
-            create: function () {
+            create: done(function () {
                 assert(true);
-                delete testConfig['Tests'].extensions;
-                done();
-                return Object.create(this);
-            }
+            })
         }];
 
         this.s.run(["--config", __dirname + "/fixtures/test-config.js"]);
