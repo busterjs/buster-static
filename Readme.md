@@ -7,6 +7,10 @@ QUnit style test runner for Buster.JS, without the manual HTML scaffolding.
 
 ##Changelog
 
+**0.6.4** (14.05.2014)
+
+* fix for issue [buster static: generating output doesn't work](https://github.com/busterjs/buster/issues/53)
+
 **0.6.3** (05.05.2014)
 
 * [References to runtime throttler removed](https://github.com/busterjs/buster-static/commit/f5c3c0185ac83d9270620dee7e8a80fa511b836a)
