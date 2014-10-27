@@ -7,9 +7,13 @@ QUnit style test runner for Buster.JS, without the manual HTML scaffolding.
 
 ##Changelog
 
+**0.6.5** (27.10.2014)
+
+* fix for issue [#279 - buster static fails on IE 8](https://github.com/busterjs/buster/issues/279)
+
 **0.6.4** (14.05.2014)
 
-* fix for issue [buster static: generating output doesn't work](https://github.com/busterjs/buster/issues/53)
+* fix for issue [#53 - buster static: generating output doesn't work](https://github.com/busterjs/buster/issues/53)
 
 **0.6.3** (05.05.2014)
 
