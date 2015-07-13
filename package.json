@@ -19,6 +19,7 @@
     "type": "git",
     "url": "https://github.com/busterjs/buster-static.git"
   },
+  "license": "BSD-3-Clause",
   "main": "./lib/buster-static",
   "bin": {
     "buster-static": "./bin/buster-static"
