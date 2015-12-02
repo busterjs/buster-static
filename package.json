@@ -37,7 +37,7 @@
     "mkdirp": "0.5.x",
     "buster-cli": "0.8.x",
     "ramp-resources": "2.x",
-    "buster-test": "https://github.com/busterjs/buster-test.git#update-deps",
+    "buster-test": "git://github.com/busterjs/buster-test.git#update-deps",
     "when": "3.x",
     "async": "1.x"
   }
