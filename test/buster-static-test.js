@@ -1,6 +1,6 @@
 "use strict";
 
-var buster = require("buster");
+var buster = require("buster-node");
 var assert = buster.assert;
 var cli = require("../lib/buster-static");
 var http = require("http");
@@ -12,6 +12,10 @@ buster.testCase("buster-static", {
     setUp: function () {
         this.s = cli.create();
         this.s.logger = { log: NOOP, error: NOOP };
+    },
+
+    tearDown: function () {
+        delete testConfig['Tests'].extensions;
     },
 
     "starts server with no arguments": function (done) {
@@ -90,6 +94,11 @@ buster.testCase("buster-static", {
     },
 
     "loads optional extensions": function (done) {
+        /* @todo: there must be a better way to test this,
+                  rather than introducing global state,
+                  which depends on require.cache
+
+                  also clean up tearDown */
         testConfig['Tests'].extensions = [{
             name: 'test-extension',
             create: done(function () {

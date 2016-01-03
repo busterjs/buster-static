@@ -25,20 +25,20 @@
     "buster-static": "./bin/buster-static"
   },
   "scripts": {
-    "test": "node node_modules/buster/bin/buster-test",
-    "test-debug": "node --debug-brk node_modules/buster/bin/buster-test"
+    "test": "node run-tests.js",
+    "test-debug": "node --debug-brk run-tests.js"
   },
   "devDependencies": {
-    "buster": "0.7.x",
+    "buster-node": "0.8.x",
     "rimraf": "2.x"
   },
   "dependencies": {
-    "stack-filter": "1.x",
-    "mkdirp": "0.5.x",
+    "async": "1.x",
     "buster-cli": "0.8.x",
+    "buster-test": "0.8.x",
+    "mkdirp": "0.5.x",
     "ramp-resources": "2.x",
-    "buster-test": "git://github.com/busterjs/buster-test.git#update-deps",
-    "when": "3.x",
-    "async": "1.x"
+    "stack-filter": "1.x",
+    "when": "3.x"
   }
 }
