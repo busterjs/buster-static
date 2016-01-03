@@ -21,24 +21,21 @@
   },
   "license": "BSD-3-Clause",
   "main": "./lib/buster-static",
-  "bin": {
-    "buster-static": "./bin/buster-static"
-  },
   "scripts": {
-    "test": "node node_modules/buster/bin/buster-test",
-    "test-debug": "node --debug-brk node_modules/buster/bin/buster-test"
+    "test": "node run-tests.js",
+    "test-debug": "node --debug-brk run-tests.js"
   },
   "devDependencies": {
-    "buster": "*",
-    "rimraf": "*"
+    "buster-node": "0.8.x",
+    "rimraf": "2.x"
   },
   "dependencies": {
-    "stack-filter": "~1.0.0",
-    "mkdirp": "~0.3.5",
-    "buster-cli": "~0.6.0",
-    "ramp-resources": "~1.0.2",
-    "buster-test": "~0.7.5",
-    "when": "https://github.com/cujojs/when/tarball/1.8.1",
-    "async": "~0.8"
+    "async": "1.x",
+    "buster-cli": "0.8.x",
+    "buster-test": "0.8.x",
+    "mkdirp": "0.5.x",
+    "ramp-resources": "2.x",
+    "stack-filter": "1.x",
+    "when": "3.x"
   }
 }

@@ -1,10 +1,9 @@
 "use strict";
 
-var buster = require("buster");
+var buster = require("buster-node");
 var assert = buster.assert;
 var cli = require("../lib/buster-static");
 var http = require("http");
-var testConfig = require('./fixtures/test-config');
 
 var NOOP = function () {};
 
@@ -12,6 +11,10 @@ buster.testCase("buster-static", {
     setUp: function () {
         this.s = cli.create();
         this.s.logger = { log: NOOP, error: NOOP };
+    },
+
+    tearDown: function () {
+        delete global.globalCallback;
     },
 
     "starts server with no arguments": function (done) {
@@ -90,13 +93,13 @@ buster.testCase("buster-static", {
     },
 
     "loads optional extensions": function (done) {
-        testConfig['Tests'].extensions = [{
-            name: 'test-extension',
-            create: done(function () {
-                assert(true);
-            })
-        }];
 
-        this.s.run(["--config", __dirname + "/fixtures/test-config.js"]);
+        // this avoids relying on require.cache'd object - we need this callback for the "test extension"
+        global.globalCallback = function () {
+            assert(true);
+            done();
+        };
+
+        this.s.run(["--config", __dirname + "/fixtures/test-config-with-extension.js"]);
     }
 });
