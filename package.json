@@ -21,9 +21,6 @@
   },
   "license": "BSD-3-Clause",
   "main": "./lib/buster-static",
-  "bin": {
-    "buster-static": "./bin/buster-static"
-  },
   "scripts": {
     "test": "node run-tests.js",
     "test-debug": "node --debug-brk run-tests.js"

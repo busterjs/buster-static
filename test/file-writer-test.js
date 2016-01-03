@@ -11,6 +11,9 @@ var assert = buster.assert;
 
 var outputPath = path.join(th.FIXTURES_ROOT, "tmp/static-test");
 
+var BUSTER_STATIC_VERSION = require("../package.json").version;
+var BUSTER_TEST_VERSION = require("buster-test/package.json").version;
+
 var NOOP = function (msg) { };
 
 buster.testCase("file writer", {
@@ -60,9 +63,9 @@ buster.testCase("file writer", {
             }));
         },
 
-        "buster/buster-0.7.x.js": function (done) {
+        "buster/buster-static-x.x.x.js": function (done) {
             fs.readFile(outputPath + "/index.html", done(function (err, data) {
-                assert.match(data, '<script src="./buster/buster-0.7.x.js">');
+                assert.match(data, '<script src="./buster/buster-static-' + BUSTER_STATIC_VERSION + '.js">');
             }));
         }
     },
@@ -81,8 +84,8 @@ buster.testCase("file writer", {
             }));
         },
 
-        "buster/buster-0.7.x.js": function (done) {
-            fs.exists(outputPath + "/buster/buster-0.7.x.js", done(function (exists) {
+        "buster/buster-static-x.x.x.js": function (done) {
+            fs.exists(outputPath + "/buster/buster-static-" + BUSTER_STATIC_VERSION + ".js", done(function (exists) {
                 assert(exists);
             }));
         }
@@ -96,8 +99,8 @@ buster.testCase("file writer", {
             }));
         },
 
-        "buster-0.7.x.css": function (done) {
-            fs.exists(outputPath + "/buster/buster-0.7.x.css", done(function (exists) {
+        "buster-x.x.x.css": function (done) {
+            fs.exists(outputPath + "/buster/buster-" + BUSTER_TEST_VERSION + ".css", done(function (exists) {
                 assert(exists);
             }));
         }
