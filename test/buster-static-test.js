@@ -4,7 +4,6 @@ var buster = require("buster-node");
 var assert = buster.assert;
 var cli = require("../lib/buster-static");
 var http = require("http");
-var testConfig = require('./fixtures/test-config');
 
 var NOOP = function () {};
 
@@ -15,7 +14,7 @@ buster.testCase("buster-static", {
     },
 
     tearDown: function () {
-        delete testConfig['Tests'].extensions;
+        delete global.globalCallback;
     },
 
     "starts server with no arguments": function (done) {
@@ -94,18 +93,13 @@ buster.testCase("buster-static", {
     },
 
     "loads optional extensions": function (done) {
-        /* @todo: there must be a better way to test this,
-                  rather than introducing global state,
-                  which depends on require.cache
 
-                  also clean up tearDown */
-        testConfig['Tests'].extensions = [{
-            name: 'test-extension',
-            create: done(function () {
-                assert(true);
-            })
-        }];
+        // this avoids relying on require.cache'd object - we need this callback for the "test extension"
+        global.globalCallback = function () {
+            assert(true);
+            done();
+        };
 
-        this.s.run(["--config", __dirname + "/fixtures/test-config.js"]);
+        this.s.run(["--config", __dirname + "/fixtures/test-config-with-extension.js"]);
     }
 });
